@@ -27,13 +27,13 @@ internal const class MorphiaModule {
 	
 	@Contribute { serviceType=ActorPools# }
 	static Void contributeActorPools(Configuration config) {
-		config["afMorphia.connMgrPool"]		= ActorPool() { it.name = "afMorphia.connMgrPool"; it.maxThreads = 1 }
+		config["afMongo.connMgrPool"]		= ActorPool() { it.name = "afMongo.connMgrPool"; it.maxThreads = 5 }
 	}
 	
 	@Build { serviceId="afMongo::MongoConnMgr" }
 	MongoConnMgr buildConnectionManager(ConfigSource configSrc, ActorPools actorPools) {
 		mongoUrl  := (Uri) configSrc.get("afMorphia.mongoUrl", Uri#)
-		actorPool := actorPools.get("afMorphia.connMgrPool")
+		actorPool := actorPools.get("afMongo.connMgrPool")
 		conMgr	  := MongoConnMgrPool(mongoUrl, null, actorPool)
 		// if we startup here, then is saves everyone pissing about trying to order their registry
 		// startup contributions to be *after* "afMorphia.conMgrStartup" or similar.

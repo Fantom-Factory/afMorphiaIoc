@@ -1,6 +1,10 @@
 v1.0 [#v1.0]
 ****
 
+v1.0.2 [#v1.0.0]
+======
+ - Chg: Increased 'maxThreads' in ConnMgrPool's 'ActorPool' to allow for new logical sessions.
+
 v1.0.0 [#v1.0.0]
 ======
  - New: Initial release.
