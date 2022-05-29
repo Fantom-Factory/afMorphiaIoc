@@ -34,7 +34,7 @@ internal const class MorphiaModule {
 	MongoConnMgr buildConnectionManager(ConfigSource configSrc, ActorPools actorPools) {
 		mongoUrl  := (Uri) configSrc.get("afMorphia.mongoUrl", Uri#)
 		actorPool := actorPools.get("afMongo.connMgrPool")
-		conMgr	  := MongoConnMgrPool(mongoUrl, null, actorPool)
+		conMgr	  := MongoConnMgr(mongoUrl, null, actorPool)
 		// if we startup here, then is saves everyone pissing about trying to order their registry
 		// startup contributions to be *after* "afMorphia.conMgrStartup" or similar.
 		conMgr.startup
