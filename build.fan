@@ -5,7 +5,7 @@ class Build : BuildPod {
 	new make() {
 		podName = "afMorphiaIoc"
 		summary = "IoC Contributions for Mongo and Morphia"
-		version = Version("1.0.2")
+		version = Version("1.0.3")
 
 		meta = [
 			"pod.dis"		: "Morphia IoC",
